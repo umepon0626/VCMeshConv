@@ -1,0 +1,14 @@
+version: "3"
+services:
+  vcmeshconv:
+    build: .
+    container_name: VCmeshCONV
+    runtime: nvidia # 追加
+    volumes:
+      - .:/workspace
+      - ../V-ATLAS.zip/V-ATLAS/Data:/workspace/Data
+    environment:
+      # 追加
+      NVIDIA_VISIBLE_DEVICES: all # 追加
+      NVIDIA_DRIVER_CAPABILITIES: all # 追加
+    stdin_open: true
